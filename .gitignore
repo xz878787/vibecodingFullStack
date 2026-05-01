@@ -1,0 +1,22 @@
+# Python 虚拟环境和缓存
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node.js/前端相关
+node_modules/
+dist/
+.vite/
+*.log
+
+# C++ 编译产物
+*.exe
+*.o
+*.obj
+*.ilk
+*.pdb
+
+# IDE 配置文件
+.trae/
+.vscode/
