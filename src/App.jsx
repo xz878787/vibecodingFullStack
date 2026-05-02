@@ -21,7 +21,7 @@ function App() {
     <div className="min-h-screen paper-bg">
       <Navbar />
       
-      <main className="pt-24 pb-16 px-4">
+      <main className="pt-32 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-kai text-ink-900 mb-4 ink-text-shadow">
