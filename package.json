@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://username.github.io/ink-divination",
+  "homepage": "https://xz878787.github.io/vibecodingFullStack",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
-    "gh-pages": "^6.1.0",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.10",
     "vite": "^5.0.8"
