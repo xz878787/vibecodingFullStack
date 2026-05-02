@@ -6,7 +6,7 @@ __pycache__/
 
 # Node.js/前端相关
 node_modules/
-dist/
+# dist/
 .vite/
 *.log
 
