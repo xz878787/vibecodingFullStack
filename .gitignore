@@ -6,7 +6,6 @@ __pycache__/
 
 # Node.js/前端相关
 node_modules/
-# dist/
 .vite/
 *.log
 
@@ -20,3 +19,6 @@ node_modules/
 # IDE 配置文件
 .trae/
 .vscode/
+
+# 构建产物（如果使用GitHub Actions自动构建则取消注释）
+# dist/
