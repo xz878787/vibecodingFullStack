@@ -109,18 +109,49 @@ export const divinationResults = [
   }
 ];
 
+export const luckConfig = {
+  '大吉': { 
+    bg: 'bg-vermilion-50', 
+    border: 'border-vermilion-400',
+    text: 'text-vermilion-600',
+    glow: 'shadow-vermilion-200',
+    stars: true
+  },
+  '吉': { 
+    bg: 'bg-vermilion-50', 
+    border: 'border-vermilion-300',
+    text: 'text-vermilion-500',
+    glow: 'shadow-vermilion-100'
+  },
+  '平': { 
+    bg: 'bg-ink-50', 
+    border: 'border-ink-300',
+    text: 'text-ink-600',
+    glow: 'shadow-gray-200'
+  },
+  '小凶': { 
+    bg: 'bg-orange-50', 
+    border: 'border-orange-300',
+    text: 'text-orange-500',
+    glow: 'shadow-orange-100'
+  },
+  '凶': { 
+    bg: 'bg-red-50', 
+    border: 'border-red-400',
+    text: 'text-red-600',
+    glow: 'shadow-red-200'
+  }
+};
+
 export const getRandomDivination = () => {
   const randomIndex = Math.floor(Math.random() * divinationResults.length);
   return divinationResults[randomIndex];
 };
 
+export const getLuckConfig = (level) => {
+  return luckConfig[level] || luckConfig['平'];
+};
+
 export const getLuckColor = (level) => {
-  const colors = {
-    '大吉': 'text-vermilion-500',
-    '吉': 'text-ink-700',
-    '平': 'text-ink-500',
-    '小凶': 'text-orange-500',
-    '凶': 'text-red-600'
-  };
-  return colors[level] || 'text-ink-500';
+  return getLuckConfig(level).text;
 };
