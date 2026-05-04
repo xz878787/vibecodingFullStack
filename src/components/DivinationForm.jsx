@@ -1,17 +1,13 @@
 import { useState } from 'react';
 
-const DivinationForm = ({ onDivinate }) => {
+const DivinationForm = ({ onDivinate, isLoading }) => {
   const [question, setQuestion] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!question.trim()) return;
+    if (!question.trim() || isLoading) return;
     
-    setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
     onDivinate(question);
-    setIsLoading(false);
     setQuestion('');
   };
 

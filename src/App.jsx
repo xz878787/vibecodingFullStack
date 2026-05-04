@@ -1,21 +1,10 @@
-import { useState } from 'react';
 import Navbar from './components/Navbar';
 import DivinationForm from './components/DivinationForm';
 import DivinationResult from './components/DivinationResult';
+import { useDivination } from './hooks/useDivination';
 
 function App() {
-  const [question, setQuestion] = useState('');
-  const [hasResult, setHasResult] = useState(false);
-
-  const handleDivinate = (userQuestion) => {
-    setQuestion(userQuestion);
-    setHasResult(true);
-  };
-
-  const handleReset = () => {
-    setQuestion('');
-    setHasResult(false);
-  };
+  const { question, result, isDivinating, hasResult, divinate, reset } = useDivination();
 
   return (
     <div className="min-h-screen paper-bg">
@@ -34,9 +23,9 @@ function App() {
           </div>
 
           {!hasResult ? (
-            <DivinationForm onDivinate={handleDivinate} />
+            <DivinationForm onDivinate={divinate} isLoading={isDivinating} />
           ) : (
-            <DivinationResult question={question} onReset={handleReset} />
+            <DivinationResult question={question} result={result} onReset={reset} />
           )}
 
           <footer className="mt-16 text-center text-ink-400 font-song text-sm">
