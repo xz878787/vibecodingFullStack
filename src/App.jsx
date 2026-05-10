@@ -27,7 +27,7 @@ function AppContent() {
       default:
         return (
           <>
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 mt-4 sm:mt-0">
               <h2 className="text-4xl font-kai text-ink-900 mb-4 ink-text-shadow">
                 墨韵占卜
               </h2>
