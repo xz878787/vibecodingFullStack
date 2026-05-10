@@ -105,3 +105,17 @@ body {
     transform: translateY(0);
   }
 }
+
+/* 移动端响应式样式 */
+@media (max-width: 640px) {
+  /* 「心有所问，卜以解惑」文字样式 */
+  .mobile-title-sub {
+    width: 90% !important;
+    margin-top: 50px !important;
+  }
+
+  /* 导航栏右侧留出80px空位 */
+  .mobile-nav-container {
+    padding-right: 80px !important;
+  }
+}

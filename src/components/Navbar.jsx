@@ -34,7 +34,7 @@ const Navbar = ({ currentPage, onNavigate, onOpenAuth }) => {
             <h1 className="text-2xl font-kai text-ink-900 ink-text-shadow">墨韵占卜</h1>
           </button>
           
-          <div className="flex items-center space-x-4 sm:space-x-8">
+          <div className="flex items-center space-x-4 sm:space-x-8 mobile-nav-container">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentPage === item.id;

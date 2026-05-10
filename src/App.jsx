@@ -31,7 +31,7 @@ function AppContent() {
               <h2 className="text-4xl font-kai text-ink-900 mb-4 ink-text-shadow">
                 墨韵占卜
               </h2>
-              <p className="text-ink-500 font-song text-lg">
+              <p className="text-ink-500 font-song text-lg mobile-title-sub">
                 心有所问，卜以解惑
               </p>
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-vermilion-400 to-transparent mx-auto mt-6" />
