@@ -70,12 +70,46 @@ export const signUp = async (email, password) => {
 };
 
 /**
- * 用户登录（邮箱+密码）
+ * 发送登录验证码到邮箱
+ * @param {string} email - 用户邮箱
+ * @returns {Object} - 返回验证ID用于后续验证
+ */
+export const sendLoginOTP = async (email) => {
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      shouldCreateUser: false  // 不自动创建用户
+    }
+  });
+  
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 验证登录验证码
+ * @param {string} email - 用户邮箱
+ * @param {string} otpCode - 6位验证码
+ * @returns {Object} - 验证结果，包含session信息
+ */
+export const verifyLoginOTP = async (email, otpCode) => {
+  const { data, error } = await supabase.auth.verifyOtp({
+    email,
+    token: otpCode,
+    type: 'email'
+  });
+  
+  if (error) throw error;
+  return data;
+};
+
+/**
+ * 用户登录（邮箱+密码）- 保留备用
  * @param {string} email - 用户邮箱
  * @param {string} password - 用户密码
  * @returns {Object} - 用户会话信息
  */
-export const signIn = async (email, password) => {
+export const signInWithPassword = async (email, password) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,

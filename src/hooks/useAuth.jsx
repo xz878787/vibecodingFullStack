@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext } from 'react';
-import { supabase, signIn, signUp, signOut, sendRegisterOTP, verifyRegisterOTP, sendPasswordResetEmail } from '../lib/supabase';
+import { supabase, signUp, signOut, sendRegisterOTP, verifyRegisterOTP, sendPasswordResetEmail, sendLoginOTP, verifyLoginOTP } from '../lib/supabase';
 
 const AuthContext = createContext(null);
 
@@ -29,12 +29,13 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     loading,
-    signIn,
     signUp,
     signOut,
     sendRegisterOTP,
     verifyRegisterOTP,
     sendPasswordResetEmail,
+    sendLoginOTP,
+    verifyLoginOTP,
     isAuthenticated: !!user,
   };
 
