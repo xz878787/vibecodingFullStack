@@ -5,6 +5,7 @@ import DivinationForm from './components/DivinationForm';
 import DivinationResult from './components/DivinationResult';
 import History from './components/History';
 import AuthModal from './components/AuthModal';
+import AIDivination from './components/AIDivination';
 import { useDivination } from './hooks/useDivination';
 
 function AppContent() {
@@ -37,16 +38,38 @@ function AppContent() {
               <div className="w-32 h-px bg-gradient-to-r from-transparent via-vermilion-400 to-transparent mx-auto mt-6" />
             </div>
 
-            {!hasResult ? (
-              <DivinationForm onDivinate={divinate} isLoading={isDivinating} />
-            ) : (
-              <DivinationResult 
-                question={question} 
-                result={result} 
-                saveStatus={saveStatus}
-                onReset={reset} 
-              />
-            )}
+            {/* 传统占卜 */}
+            <div className="mb-12">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-kai text-ink-800">传统卜卦</h3>
+              </div>
+              {!hasResult ? (
+                <DivinationForm onDivinate={divinate} isLoading={isDivinating} />
+              ) : (
+                <DivinationResult 
+                  question={question} 
+                  result={result} 
+                  saveStatus={saveStatus}
+                  onReset={reset} 
+                />
+              )}
+            </div>
+
+            {/* 分隔线 */}
+            <div className="flex items-center justify-center mb-12">
+              <div className="w-24 h-px bg-ink-300" />
+              <span className="mx-4 text-ink-400 font-song text-sm">或</span>
+              <div className="w-24 h-px bg-ink-300" />
+            </div>
+
+            {/* AI 占卜 */}
+            <div>
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-kai text-ink-800">AI 问道</h3>
+                <p className="text-ink-500 font-song text-sm mt-2">借助 AI 之力，聆听周易智慧</p>
+              </div>
+              <AIDivination />
+            </div>
           </>
         );
     }

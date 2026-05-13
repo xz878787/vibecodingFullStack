@@ -1,0 +1,21 @@
+{
+  "name": "augur-ai",
+  "description": "AI 占卜服务 - 调用 OpenRouter deepseek-chat 模型",
+  "env": {
+    "OPENROUTER_API_KEY": {
+      "required": true,
+      "description": "OpenRouter API Key"
+    }
+  },
+  "cors": {
+    "allowed_origins": [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://*.netlify.app",
+      "https://xiaozhi-augur-online.netlify.app",
+      "*"
+    ],
+    "allowed_methods": ["POST", "OPTIONS"],
+    "allowed_headers": ["Content-Type", "Authorization"]
+  }
+}
