@@ -34,7 +34,7 @@ const Navbar = ({ currentPage, onNavigate, onOpenAuth }) => {
             <h1 className="text-2xl font-kai text-ink-900 ink-text-shadow">墨韵占卜</h1>
           </button>
           
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4 sm:space-x-8 mobile-nav-container">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentPage === item.id;
@@ -71,7 +71,8 @@ const Navbar = ({ currentPage, onNavigate, onOpenAuth }) => {
               );
             })}
 
-            <div className="ml-4 pl-4 border-l border-ink-300">
+            {/* 登录信息区域 - 移动端和桌面端保持一致的占位宽度 */}
+            <div className="hidden sm:block ml-4 pl-4 border-l border-ink-300 min-w-[140px]">
               {isAuthenticated ? (
                 <div className="flex items-center space-x-3">
                   <div className="text-right">
@@ -100,6 +101,24 @@ const Navbar = ({ currentPage, onNavigate, onOpenAuth }) => {
                   登录
                 </button>
               )}
+            </div>
+
+            {/* 移动端登录按钮 - 简化版 */}
+            <div className="sm:hidden min-w-[60px] flex justify-end">
+              <button
+                onClick={handleUserClick}
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  isAuthenticated 
+                    ? 'bg-vermilion-100 text-vermilion-500' 
+                    : 'bg-ink-800 text-paper-50 hover:bg-ink-700'
+                }`}
+              >
+                {isAuthenticated ? (
+                  <span className="font-kai text-sm">{user?.email?.[0]?.toUpperCase()}</span>
+                ) : (
+                  <span className="text-xs font-song">登</span>
+                )}
+              </button>
             </div>
           </div>
         </div>

@@ -36,3 +36,6 @@ Thumbs.db
 
 # Ink icons generator
 ink_icons_generator.py
+
+# Local Netlify folder
+.netlify
