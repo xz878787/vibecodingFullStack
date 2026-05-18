@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { divinateWithAI } from '../services/aiService';
+import { saveDivinationRecord } from '../services/divinationService';
 
 const AIDivination = () => {
   const [question, setQuestion] = useState('');
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [saveSuccess, setSaveSuccess] = useState(false);
 
   const handleDivinate = async () => {
     if (!question.trim()) {
@@ -15,18 +17,33 @@ const AIDivination = () => {
 
     setError('');
     setResult(null);
+    setSaveSuccess(false);
     setIsLoading(true);
 
     try {
+      // 调用AI占卜
       const response = await divinateWithAI(question);
       if (response.success) {
         setResult(response.result);
+        
+        // 保存到数据库（占卜类型标记为 "ai"）
+        try {
+          await saveDivinationRecord({
+            question: question.trim(),
+            result: response.result,
+            type: 'ai'
+          });
+          setSaveSuccess(true);
+          console.log('AI占卜记录已保存');
+        } catch (saveErr) {
+          console.warn('保存记录失败:', saveErr);
+          // 保存失败不影响占卜结果展示
+        }
       } else {
         setError(response.error || '卦象紊乱，请稍后再试');
       }
     } catch (err) {
       console.error('AI 占卜错误:', err);
-      // 统一错误提示为古风风格
       setError('卦象紊乱，请稍后再试');
     } finally {
       setIsLoading(false);
@@ -37,6 +54,7 @@ const AIDivination = () => {
     setQuestion('');
     setResult(null);
     setError('');
+    setSaveSuccess(false);
   };
 
   return (
@@ -112,6 +130,13 @@ const AIDivination = () => {
               {result}
             </p>
           </div>
+
+          {/* 保存成功提示 */}
+          {saveSuccess && (
+            <div className="mt-4 text-center">
+              <span className="text-green-500 font-song text-xs">✓ 记录已保存</span>
+            </div>
+          )}
 
           <div className="mt-6 text-center">
             <button
