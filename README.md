@@ -16,7 +16,7 @@
 - Tailwind CSS 3
 
 ## 快速开始
-
+https://xiaozhi-augur-online.netlify.app/ 
 ### 安装依赖
 
 ```bash
