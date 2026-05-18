@@ -38,10 +38,16 @@
 
 ## 🛠 技术栈
 前端框架：Vue3 + Vite
+
 UI 风格：简约国风中式设计
+
 AI 接口：Kimi-v1-8K
+
 部署平台：Netlify 免费静态托管
+
 数据存储：本地缓存用户占卜记录
+
+
 - React 18
 - Vite
 - Tailwind CSS 3
