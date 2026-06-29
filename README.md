@@ -123,6 +123,6 @@ export default defineConfig({
 ## 许可证
 
 MIT
-感谢观看！
+感谢观看
 
 
